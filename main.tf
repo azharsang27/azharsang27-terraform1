@@ -16,7 +16,7 @@ module "aws_provisioners" {
 	source = "./modules/provisioners-file-local-remote-exec"
 	module_ec2_user = var.root_ec2_user
 	module_instance_public_ip = module.aws_ec2_create.module_ec2_public_ip	
-	module_ec2_public_ip = module.aws_ec2_create.ec2_public_ip	
+	module_ec2_public_ip = module.aws_ec2_create.module_ec2_public_ip
 }
 
 
