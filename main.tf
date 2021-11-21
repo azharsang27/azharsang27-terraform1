@@ -12,11 +12,17 @@ module "aws_s3_create" {
 	module_s3_bucket_encryp_type = var.root_s3_bucket_encryp_type
 }
 
+module "aws_provisioners" {
+	source = "./modules/provisioners-file-local-remote-exec"
+	module_ec2_user = var.root_ec2_user
+	module_instance_public_ip = module.aws_ec2_create.module_ec2_public_ip	
+	module_ec2_public_ip = module.aws_ec2_create.ec2_public_ip	
+}
 
 
 
 
-resource "aws_s3_bucket" "terraform_state_1" {
+/* resource "aws_s3_bucket" "terraform_state_1" {
   bucket = "tfstate-example-azhar-113"
 
   versioning {
@@ -44,5 +50,5 @@ resource "aws_dynamodb_table" "terraform_state_lock" {
     name = "LockID"
     type = "S"
   }
-}
+} */
 
