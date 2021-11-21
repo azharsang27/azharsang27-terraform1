@@ -22,7 +22,7 @@ module "aws_provisioners" {
 
 
 
-/* resource "aws_s3_bucket" "terraform_state_1" {
+resource "aws_s3_bucket" "terraform_state_1" {
   bucket = "tfstate-example-azhar-113"
 
   versioning {
@@ -50,5 +50,5 @@ resource "aws_dynamodb_table" "terraform_state_lock" {
     name = "LockID"
     type = "S"
   }
-} */
+} 
 
